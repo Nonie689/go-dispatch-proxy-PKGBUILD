@@ -20,5 +20,5 @@ build() {
 
 package() {
 
-  install -Dm755 "$srcdir"/$_pkgname/go-dispatch-proxy -t "$pkgdir"/usr/lib/go-dispatch-proxy/
+  install -Dm755 "$srcdir"/$_pkgname/go-dispatch-proxy -t "$pkgdir"/usr/bin/
 }
