@@ -1,5 +1,6 @@
 # Maintainer: Nonie689 <nonie689 at eclipso dot ch>
 pkgname=go-dispatch-proxy-git
+_pkgname=go-dispatch-proxy
 pkgver=5.0.0
 pkgrel=1
 pkgdesc="A SOCKS5 load balancing proxy to combine multiple internet connections into one"
@@ -9,16 +10,15 @@ license=('GPL')
 makedepends=("go")
 install=
 source=("git+https://github.com/extremecoders-re/go-dispatch-proxy.git")
-md5sums=()
+sha256sums=('SKIP')
 
 build() {
-  cd "$srcdir/$pkgname"
+  cd "$srcdir/$_pkgname"
 
   go build
 }
 
 package() {
-  cd "$srcdir/$pkgname"
 
-  make DESTDIR="$pkgdir/" install
+  install -Dm755 "$srcdir"/$_pkgname/go-dispatch-proxy -t "$pkgdir"/usr/lib/go-dispatch-proxy/
 }
